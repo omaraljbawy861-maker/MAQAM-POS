@@ -190,6 +190,12 @@ s.configure("RemoveCart.TButton", font=("Segoe UI",10,"bold"), padding=7)
         e=ttk.Entry(right,textvariable=self.scan,font=("Segoe UI",14,"bold"),justify="center")
         e.pack(fill="x",pady=7,ipady=7)
         e.bind("<Return>",lambda x:self.add_scan())
+
+        # MAQAM POS keyboard shortcuts
+        self.bind_all("<F2>", lambda e: self.scan.focus_set())
+        self.bind_all("<Delete>", lambda e: self.remove_cart())
+        self.bind_all("<Control-Delete>", lambda e: self.clear_cart())
+        self.bind_all("<F9>", lambda e: self.open_return_window())
         ttk.Button(right,text="🔎 إضافة بالباركود",command=self.add_scan,style="Barcode.TButton").pack(fill="x",pady=4,ipady=5)
         ttk.Button(right,text="✖ حذف المحدد",command=self.remove_cart,style="RemoveCart.TButton").pack(fill="x",pady=3,ipady=4)
         ttk.Button(right,text="💰 سعر خاص / لصديق",command=self.special_price,style="Small.TButton").pack(fill="x",pady=2)

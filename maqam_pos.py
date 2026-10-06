@@ -139,6 +139,10 @@ class App(tk.Tk):
         s.configure("Small.TButton", font=("Segoe UI",8,"bold"), padding=[3,2])
 
 s.configure("Barcode.TButton", font=("Segoe UI",10,"bold"), padding=8)
+
+s.configure("ClearCart.TButton", font=("Segoe UI",10,"bold"), padding=7)
+
+s.configure("RemoveCart.TButton", font=("Segoe UI",10,"bold"), padding=7)
         s.configure("Return.TButton", font=("Segoe UI",10,"bold"), padding=[6,4])
         s.configure("Title.TLabel", background="#111111", foreground="#d8b56a",
                     font=("Segoe UI",23,"bold"))
@@ -187,9 +191,9 @@ s.configure("Barcode.TButton", font=("Segoe UI",10,"bold"), padding=8)
         e.pack(fill="x",pady=7,ipady=7)
         e.bind("<Return>",lambda x:self.add_scan())
         ttk.Button(right,text="🔎 إضافة بالباركود",command=self.add_scan,style="Barcode.TButton").pack(fill="x",pady=4,ipady=5)
-        ttk.Button(right,text="حذف المحدد",command=self.remove_cart,style="Small.TButton").pack(fill="x",pady=2)
+        ttk.Button(right,text="✖ حذف المحدد",command=self.remove_cart,style="RemoveCart.TButton").pack(fill="x",pady=3,ipady=4)
         ttk.Button(right,text="💰 سعر خاص / لصديق",command=self.special_price,style="Small.TButton").pack(fill="x",pady=2)
-        ttk.Button(right,text="تفريغ السلة",command=self.clear_cart,style="Small.TButton").pack(fill="x",pady=2)
+        ttk.Button(right,text="🗑️ تفريغ السلة",command=self.clear_cart,style="ClearCart.TButton").pack(fill="x",pady=3,ipady=4)
 
         self.total_lbl=ttk.Label(right,text="الإجمالي: 0.00",font=("Segoe UI",11,"bold"))
         self.total_lbl.pack(anchor="e",pady=10)

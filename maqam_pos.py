@@ -344,7 +344,32 @@ class App(tk.Tk):
         .invoice-barcode svg{{max-width:100%;height:auto}}
         button{{margin-top:16px;padding:10px 22px;background:#111;color:#D4AF37;border:1px solid #D4AF37;border-radius:5px;font-weight:bold;position:relative;z-index:3}}
         @media print{{button{{display:none}} body{{margin:0 auto}} .watermark{{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:-1}}}}
-        </style>
+        /* MAQAM_WATERMARK_CSS */
+
+<style>
+.watermark {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0.08;
+    z-index: 0;
+}
+.watermark img {
+    max-width: 55%;
+    max-height: 55%;
+    object-fit: contain;
+}
+.invoice .head,
+.invoice > *:not(.watermark) {
+    position: relative;
+    z-index: 1;
+}
+</style>
+
+</style>
         <div class="invoice">
           <div class="watermark">{logo_html}</div>
           <div class="head">
